@@ -1,3 +1,4 @@
+## Optimizing Strassen Matrix Multiplication and Using it to Determine the Number of Triangles in a Graph
 A project for Harvard's Data Structures and Algorithms course. Simulating Kruskal's Minimum Spanning Tree algorithm on random, 
 complete, undirected graphs. A graph with n vertices is complete if all n choose 2 pairs of vertices are edges in the graph.
 
