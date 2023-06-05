@@ -3,7 +3,8 @@ complete, undirected graphs. A graph with n vertices is complete if all n choose
 
 # Overview
 Strassen’s recursive divide and conquer matrix multiplication algorithm for n by n matrices is asymptotically faster than the 
-conventional O($n^3$) algorithm. Although Strassen's is faster for sufficiently large values of n, the conventional algorithm is faster 
+conventional 
+O($n^3$) algorithm. Although Strassen's is faster for sufficiently large values of n, the conventional algorithm is faster 
 for small values of n.
 
 ![](https://www.geeksforgeeks.org/wp-content/uploads/strassen_new.png)
