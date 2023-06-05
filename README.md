@@ -9,6 +9,10 @@ for small values of n.
 
 ![strassen_new](https://github.com/jamesb2413/Optimizing-Strassen-Matrix-Multiplication/assets/43123401/82115e75-7dad-48db-84fb-08d3221a146c)
 
+<img width="183" alt="Screen Shot 2023-06-05 at 4 40 11 PM" src="https://github.com/jamesb2413/Optimizing-Strassen-Matrix-Multiplication/assets/43123401/e8177cf6-c8f9-42b7-b795-12e49010d2ce">
+
+<img width="234" alt="Screen Shot 2023-06-05 at 4 40 35 PM" src="https://github.com/jamesb2413/Optimizing-Strassen-Matrix-Multiplication/assets/43123401/1c8fbe0a-a9d3-4b98-8e8c-30d02abfa207">
+
 
 At some point in Strassen's recursion, at some point in the recursion, once the matrices are small enough, we want to switch from recursively 
 calling Strassen’s algorithm and just do a conventional matrix multiplication because conventional matrix multiplication is faster up to some reasonable size.
@@ -26,7 +30,7 @@ random integer values in a given range.
 In Strassen.java are implementations of the `standard()` and `strassen()` matrix multiplication algorithms.
 
 I optimized memory management in Strassen’s by avoiding excessive memory allocation and deallocation and by avoiding copying large blocks of data unnecessarily. 
-Instead of initializing 8 n/2 matrices A,...,H and then adding and subtracting them into the sum matrices, I only created 14 matrices and recycled them. Referencing the lecture 10 notes for Strassen’s algorithm, I first stored A, F − H, A + B, H, C + D, etc. in the 14 matrices, then overwrote 7 of the matrices to become P1, P2, ..., P7. Then, I again over- wrote 4 matrices to become AE + BG, AF + BH, etc. By only storing 14 matrices and overwriting matrices that were no longer needed, I reduced the amount of memory allocation and copying. Luck- ily, each step of the algorithm required sequential operations on some matrices that were not used in future steps, so this optimization was possible. Since regular Strassen’s was shown in Lecture 10 to be Θ(nlog 7), which is o(n3), our implementation is O(nlog 7) since we improve upon the Strassen’s demonstrated in Lecture using our cross-over points.
+Instead of storing 8 n/2 matrices A,...,H and then multiplying, adding, and subtracting them into the intermediate $P_x$ matrices and the sum matrices, I only created 14 matrices and recycled them. Referencing the images above from CS124 lecture 10 notes for Strassen’s algorithm, I first stored A, F − H, A + B, H, C + D, etc. in the 14 matrices, then overwrote 7 of the matrices by computing P1, P2, ..., P7. Then, I again overwrote 4 matrices by computing AE + BG, AF + BH, etc. By only storing 14 matrices and overwriting matrices that were no longer needed, I reduced the amount of memory allocation and copying. Luckily, each step of the algorithm required sequential operations on some matrices that were not used in future steps, so this optimization was possible. Since regular Strassen’s was shown in Lecture 10 to be Θ($n^{\log 7}$), which is o($n^3$), our implementation is O($n^{\log 7}$) since we improve upon the Strassen’s demonstrated in Lecture using our crossover points.
 
 
 # Experiments and Discussion
@@ -47,7 +51,6 @@ because any $n_0$ in the range $306 <= n < 612$ will result in the same behavior
 306 matrices. By testing many matrix sizes, I was able to narrow down the sweet spot to find a small range of optimal $n_0$ values for all matrix sizes.
 All matrix multiplications contained [256, 347] in their optimal $n_0$ range. Therefore, we can comfortably 
 say that the optimal experimental $n_0$ is about 260.
-
 
 Some matrix sizes had much larger optimal ranges, while others had very small optimal ranges. This may be because there
 is a different optimal cross-over when the last recursive matrix size is odd vs. even. I conjecture that the large ranges of optimal $n_0$
