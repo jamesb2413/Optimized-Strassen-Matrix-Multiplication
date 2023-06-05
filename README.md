@@ -7,7 +7,8 @@ conventional
 $O(n^3)$ algorithm. Although Strassen's is faster for sufficiently large values of n, the conventional algorithm is faster 
 for small values of n.
 
-![Alt text](https://www.geeksforgeeks.org/wp-content/uploads/strassen_new.png)
+![strassen_new](https://github.com/jamesb2413/Optimizing-Strassen-Matrix-Multiplication/assets/43123401/82115e75-7dad-48db-84fb-08d3221a146c)
+
 
 At some point in Strassen's recursion, at some point in the recursion, once the matrices are small enough, we want to switch from recursively 
 calling Strassen’s algorithm and just do a conventional matrix multiplication because conventional matrix multiplication is faster up to some reasonable size.
