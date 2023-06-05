@@ -1,6 +1,5 @@
 ## Optimizing Strassen Matrix Multiplication and Using it to Determine the Number of Triangles in a Graph
-A project for Harvard's Data Structures and Algorithms course. Implementing Strassen's Matrix Multiplication with an optimal "cross-over point" to standard matrix multiplication once recursion reaches small matrices. Experimentally found cross-over point. Then, used optimized Strassen's to count the number of triangles in random graphs.
-
+A project for Harvard's Data Structures and Algorithms course. Optimized Strassen's Matrix Multiplication algorithm by crossing over to conventional matrix multiplication algorithm once recursion reaches an optimally small matrix size. Experimentally found optimal cross-over point. Then, used optimized Strassen's to count the number of triangles in random graphs.
 # Overview
 Strassen’s recursive divide and conquer matrix multiplication algorithm for n by n matrices is asymptotically faster than the 
 conventional 
